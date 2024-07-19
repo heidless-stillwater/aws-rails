@@ -22,7 +22,11 @@
             <div class="text-center">
                 <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
                 <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                <a class="btn btn-primary" href="#about">Get Started</a>
+                <p>
+                    <a class="btn btn-primary" href="#about">Get Started</a>
+                    <%= link_to 'home', root_path, class: 'btn btn-primary' %>
+                    <%= link_to 'videos', videos_path, class: 'btn btn-primary' %>
+                </p>
             </div>
         </div>
     </div>
