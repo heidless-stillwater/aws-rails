@@ -26,7 +26,7 @@ Rails.application.configure do
     :password => Rails.application.credentials.aws[:ses_password], # secret sendgrid API key
     :domain => Rails.application.credentials.aws[:ses_domain], 
     :port => 587,   # 465	(for SSL connections). 25, 587	(for unencrypted/TLS connections)
-    :authentication => :plain,
+    :authentication => :login,
     :enable_starttls_auto => true
   }
 
