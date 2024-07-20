@@ -12,6 +12,24 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { 
+    :host => Rails.application.credentials.aws[:ses_domain], 
+    :protocol => "https" 
+  }
+
+  config.action_mailer.smtp_settings = {
+#    :address => 'smtp.sendgrid.net',
+    :address => Rails.application.credentials.aws[:ses_server],
+    :user_name => Rails.application.credentials.aws[:ses_username],
+    :password => Rails.application.credentials.aws[:ses_password], # secret sendgrid API key
+    :domain => Rails.application.credentials.aws[:ses_domain], 
+    :port => 587,   # 465	(for SSL connections). 25, 587	(for unencrypted/TLS connections)
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
