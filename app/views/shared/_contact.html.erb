@@ -1,5 +1,7 @@
 
 <%= form_tag(send_mail_path, class: 'col form-signup') do %>
+    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
+    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
     <div class='row form-label-group'>
         <%= text_field_tag 'name', nil, class: 'form_control', placeholder: 'Name' %>
         <label for="name">&nbsp</label>
@@ -14,3 +16,4 @@
     </div>
     <%= submit_tag nil, class: 'btn btn-primary'  %>
 <% end %>
+
