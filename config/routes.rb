@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
+  
   resources :videos
+
   get 'pages/home'
   root 'pages#home'
 
